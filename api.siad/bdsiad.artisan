@@ -1,0 +1,73 @@
+php artisan make:model CajaBanco -m
+php artisan make:model Cliente -m
+php artisan make:model Local -m
+php artisan make:model TipoDocumento -m
+php artisan make:model TipoCanalComunicacion -m
+php artisan make:model Serie -m
+php artisan make:model TipoTransaccion -m
+php artisan make:model MedioPago -m
+php artisan make:model Cargo -m
+php artisan make:model Empleado -m
+php artisan make:model Moneda -m
+php artisan make:model CuentaCliente -m
+php artisan make:model CuentaBancaria -m
+php artisan make:model CanalComunicacion -m
+php artisan make:model LocalCanal -m
+php artisan make:model LocalCajaBanco -m
+php artisan make:model Transaccion -m
+php artisan make:model TransaccionCuentaBancaria -m
+
+-- despues de definir en modelos su esctructura faltaria ejecutar con
+php artisan migrate 
+-- para revertir
+php artisan migrate:rollback
+php artisan migrate:revert
+
+-- crear clases para inicializar datos
+php artisan make:seeder CajaBancoSeeder
+php artisan make:seeder ClienteSeeder
+php artisan make:seeder LocalSeeder
+php artisan make:seeder TipoDocumentoSeeder
+php artisan make:seeder TipoCanalComunicacionSeeder
+php artisan make:seeder SerieSeeder
+php artisan make:seeder TipoTransaccionSeeder
+php artisan make:seeder MedioPagoSeeder
+php artisan make:seeder CargoSeeder
+php artisan make:seeder EmpleadoSeeder
+php artisan make:seeder MonedaSeeder
+php artisan make:seeder CuentaClienteSeeder
+php artisan make:seeder CuentaBancariaSeeder
+php artisan make:seeder CanalComunicacionSeeder
+php artisan make:seeder LocalCanalSeeder
+php artisan make:seeder LocalCajaBancoSeeder
+
+-- ejecutar las insercion de datos definidos en clases
+php artisan db:seed --class=CajaBancoSeeder
+php artisan db:seed --class=ClienteSeeder
+php artisan db:seed --class=LocalSeeder
+php artisan db:seed --class=TipoDocumentoSeeder
+php artisan db:seed --class=TipoCanalComunicacionSeeder
+php artisan db:seed --class=SerieSeeder
+php artisan db:seed --class=TipoTransaccionSeeder
+php artisan db:seed --class=MedioPagoSeeder
+php artisan db:seed --class=CargoSeeder
+php artisan db:seed --class=EmpleadoSeeder
+php artisan db:seed --class=MonedaSeeder
+php artisan db:seed --class=CuentaClienteSeeder
+php artisan db:seed --class=CuentaBancariaSeeder
+php artisan db:seed --class=CanalComunicacionSeeder
+php artisan db:seed --class=LocalCanalSeeder
+php artisan db:seed --class=LocalCajaBancoSeeder
+
+#elimina y vuelve a crear tablas.
+php artisan migrate:refresh 
+php artisan migrate:refresh --seed
+
+php artisan make:controller TransaccionController
+php artisan make:controller CanalComunicacionController --api
+php artisan make:controller MedioPagoController --api
+php artisan make:controller ClienteController --api
+php artisan make:controller CajaBancoController --api
+
+php artisan storage:link
+php artisan make:controller UploadController
